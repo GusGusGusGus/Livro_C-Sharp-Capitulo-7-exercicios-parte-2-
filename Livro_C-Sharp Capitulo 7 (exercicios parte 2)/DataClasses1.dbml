@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Empresa" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Empresa;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True" SettingsObjectName="Livro_C_Sharp_Capitulo_7__exercicios_parte_2_.Properties.Settings" SettingsPropertyName="EmpresaConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Departamentos" Member="Departamentos">
+    <Type Name="Departamentos">
+      <Column Name="Sigla" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Departamento" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Departamentos_Funcionarios" Member="Funcionarios" ThisKey="Sigla" OtherKey="Departamento" Type="Funcionarios" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Funcionarios" Member="Funcionarios">
+    <Type Name="Funcionarios">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Departamento" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="Departamentos_Funcionarios" Member="Departamentos" ThisKey="Departamento" OtherKey="Sigla" Type="Departamentos" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
